@@ -1,11 +1,12 @@
 import express,{Application, Request, Response, NextFunction} from 'express'
 import dotenv from "dotenv";
 import {PubSub} from "@google-cloud/pubsub";
+import {userTuple} from "./tuplesAndArrays";
 
 // initialize configuration
 dotenv.config();
 
-const topicName:string = 'projects/pub-sub-test-282116/topics/land-lords';//'land-lords';
+const topicName:string = 'projects/pub-sub-test-282116/topics/land-lords';// 'land-lords';
 const projectId:string = 'pub-sub-test-282116';
 
 const port = process.env.SERVER_PORT;
@@ -38,3 +39,4 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(port, () => console.log(`Server running in http://localhost:${port}`));
+
